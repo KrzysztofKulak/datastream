@@ -6,6 +6,9 @@ services:
     - "5001:5000"
     volumes:
     - .:/src
-  test_dataproducer:
-    build: ./dataproducer
-    
+  datamanager:
+    build: ./datamanager
+    ports:
+    - "5000:5000"
+    volumes:
+    - .:/src
