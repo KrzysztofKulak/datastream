@@ -1,17 +1,11 @@
 import datetime
-from json import dumps
 
-from flask import Flask, jsonify, request
+from flask import Flask, request
 
 from .queues import get_queue
+from .settings import queue_topics_map
 
 app = Flask(__name__)
-
-queue_topics_map = {
-    "Queue1": ["topic_a", "topic_b"],
-    "Queue2": ["topic_c", "topic_d"],
-    "Queue3": ["topic_c"]
-}
 
 
 @app.route('/intake', methods=["POST"])
