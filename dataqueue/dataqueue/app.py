@@ -4,7 +4,7 @@ import os
 from flask import Flask, request
 
 from .queues import get_queue
-from .settings import queue_topics_map
+from ..settings import queue_topics_map
 
 app = Flask(__name__)
 app.config["INTAKE_API_KEY"] = os.environ["INTAKE_API_KEY"]
@@ -35,6 +35,11 @@ def outtake(queue):
         return response
     else:
         return f"queue {queue} empty", 404
+
+
+@app.route('/test/<string:name>')
+def test(name):
+    return f"<h1>{name}</h1>"
 
 
 def assign_queues(topic):

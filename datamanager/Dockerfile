@@ -1,6 +1,6 @@
 FROM python:3
 ENV PYTHONUNBUFFERED=1 \
-    FLASK_APP=app.py \
+    FLASK_APP=datamanager/app.py \
     INTAKE_API_KEY=outtake_key_placeholder \
     OUTTAKE_API_KEY=consumer_outtake_key_placeholder \
     FLASK_ENV=development

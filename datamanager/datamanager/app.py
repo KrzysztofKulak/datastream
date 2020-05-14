@@ -1,16 +1,10 @@
 import os
 
-from flask import Flask, request
-
-from .settings import queues
-from .settings import consumers
-from .settings import consumer_queues_map
-
-app = Flask(__name__)
-app.config["INTAKE_API_KEY"] = os.environ["INTAKE_API_KEY"]
+from datamanager.settings import queues
+from datamanager.settings import consumers
+from datamanager.settings import consumer_queues_map
 
 
-@app.route("/")
 def main():
     for queue in queues:
         data = pop_queue(queue)
@@ -28,4 +22,5 @@ def send_data(data, consumer_url):
 
 
 while True:
-    main()
+    pass
+    # main()
