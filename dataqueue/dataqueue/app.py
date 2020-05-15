@@ -37,11 +37,6 @@ def outtake(queue):
         return f"queue {queue} empty", 404
 
 
-@app.route('/test/<string:name>')
-def test(name):
-    return f"<h1>{name}</h1>"
-
-
 def assign_queues(topic):
     queues = []
     for queue, topics in queue_topics_map.items():
