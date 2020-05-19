@@ -34,7 +34,7 @@ def outtake(queue):
     if response:
         return response
     else:
-        return f"queue {queue} empty", 404
+        return f"queue {queue} empty", 404  
 
 
 def assign_queues(topic):

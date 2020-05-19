@@ -6,4 +6,6 @@ api_key = os.environ["API_KEY"]
 
 
 def enqueue_data(data):
-    return requests.post(f"{dataqueue_url}/intake", json=data, headers={"x-api_key": api_key}).json()
+    return requests.post(
+        f"{dataqueue_url}/intake", json=data, headers={"x-api_key": api_key}
+    ).json()
