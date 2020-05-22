@@ -12,7 +12,7 @@ class Queue:
             return None
 
     def push(self, item):
-        return self._queue.put(item)
+        return self._queue.put(item, False)
 
 
 class Queue1(Queue):
@@ -34,12 +34,12 @@ _queue_3 = Queue3()
 _queues = (_queue_1, _queue_2, _queue_3)
 
 
+def _get_class_name(queue):
+    return queue.__class__.__name__
+
+
 def get_queue(name):
-    for queue in _queues:
-        if queue.__class__.__name__ == name:
-            desired_queue = queue
-            break
-    else:
-        raise ValueError
-    return desired_queue
+    if name in map(lambda n: _get_class_name(n), _queues):
+        return [queue for queue in _queues if _get_class_name(queue) == name][0]
+    raise ValueError
 
